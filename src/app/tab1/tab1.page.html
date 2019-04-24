@@ -1,0 +1,36 @@
+
+
+<ion-content >
+    <ion-segment class="segment-color medium" (ionChange)="segmentChanged($event)" >
+        <ion-segment-button value="tankA" >
+          <ion-label color="light">Tank A</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="tankB">
+          <ion-label color="light">Tank B</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    <ion-card class="welcome-card" color="secondary">
+      <ion-img src="/assets/shapes.png"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center" color="tertiary">water level</ion-card-subtitle>
+        <ion-card-title class="ion-text-center" color="danger">25%</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+       
+          <ion-list-header color="secondary">
+            <ion-label>Status</ion-label>
+          </ion-list-header>
+          <ion-item color="secondary" lines="none">
+            <ion-icon slot="start" color="medium" name="trending-down"></ion-icon>
+            <ion-label>Water Flow : Yes</ion-label>
+          </ion-item>
+          <ion-item color="secondary" lines="none">
+            <ion-icon slot="start" color="medium" name="trending-up"></ion-icon>
+            <ion-label>Resevor Flow : Yes</ion-label>
+          </ion-item>
+          
+        
+      </ion-card-content>
+    </ion-card>
+    
+</ion-content>
