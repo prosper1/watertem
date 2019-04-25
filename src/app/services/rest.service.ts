@@ -6,13 +6,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RestService {
 
+  apiUrl = 'http://temelectronics.co.za/hospital/levelone/';
+
   constructor(public http: HttpClient) { }
 
 
-  //Get Stats
+  // Get Stats
   getSystemData() {
-    return this.http.get('http://temelectronics.co.za/hospital/levelone/getSystemByID.php?id=1');
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + 'getSystemByID.php?id=1').subscribe(data => {
+        resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });
   }
 
-  
 }
