@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RestService } from './../services/rest.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-tab1',
@@ -8,11 +10,19 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  tanks: Observable<any>;
+  tanks:any = []
+
  
   constructor(public restService: RestService) { 
-    this.tanks = this.restService.getSystemData();
+    this.getProducts()
+    console.log(this.tanks)
   }
  
+  getProducts() {
+    this.restService.getSystemData().then(data => {
+      this.tanks = data[0];
+      console.log(this.tanks);
+    });
+  }
   
 }

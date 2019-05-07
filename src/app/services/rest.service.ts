@@ -11,7 +11,14 @@ export class RestService {
 
   //Get Stats
   getSystemData() {
-    return this.http.get('http://temelectronics.co.za/hospital/levelone/getSystemByID.php?id=1');
+
+    return new Promise(resolve => {
+      this.http.get('http://127.0.0.1:8000/api/?format=json').subscribe(data => {
+        resolve(data);
+    }, err => {
+      console.log(err)
+    });
+  });
   }
 
   
