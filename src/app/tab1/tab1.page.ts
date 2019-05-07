@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { RestService } from './../services/rest.service';
+<<<<<<< HEAD
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+=======
+>>>>>>> 90b561a1e15723c415fa1acd730c3038e0adc5cb
 
 
 @Component({
@@ -10,6 +13,7 @@ import { catchError, tap } from 'rxjs/operators';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+<<<<<<< HEAD
   tanks:any = []
 
  
@@ -25,4 +29,23 @@ export class Tab1Page {
     });
   }
   
+=======
+
+  tanks: any = [];
+
+  constructor(
+    public restService: RestService,
+  ) {
+    this.getTank();
+  }
+
+  getTank() {
+    this.restService.getSystemData()
+    .then(data => {
+      this.tanks = data;
+      console.log(this.tanks);
+    });
+  }
+
+>>>>>>> 90b561a1e15723c415fa1acd730c3038e0adc5cb
 }
